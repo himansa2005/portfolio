@@ -26,6 +26,7 @@
       color: white;
       padding: 2rem;
       text-align: center;
+      position: relative;
     }
 
     nav a {
@@ -39,6 +40,8 @@
       max-width: 900px;
       margin: auto;
       padding: 2rem;
+      width: 95%;
+      box-sizing: border-box;
     }
 
     section {
@@ -67,13 +70,62 @@
     }
 
     nav{
-      position: fixed;
+      position: sticky;
+      top: 0;
       text-align: center;
-      width: 95%;
+      width: 100%;
       z-index: 1000;
       background-color: #4f46e5;
-      top: 0;
-      ;
+      margin-bottom: 0;
+      border: none;
+      box-shadow: none;
+    }
+    /* Responsive tweaks for smaller screens, no layout change, fix header overlap */
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+      header {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      nav {
+        padding: 0.5rem 0;
+        margin-bottom: 0.5rem;
+      }
+      nav a {
+        font-size: 0.95rem;
+        margin: 0 5px;
+      }
+      .project {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 0.5rem;
+      }
+      header {
+        padding: 0.5rem;
+      }
+      h1 {
+        font-size: 1.1rem;
+      }
+      nav a {
+        font-size: 0.85rem;
+        margin: 0 2px;
+      }
+      .project {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
     }
 
     nav ul {
@@ -90,13 +142,14 @@
 
   <header>
     <h1>Himansa's  Portfolio</h1>
+  </header>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
+  
 
   <div class="container">
     <section id="about">
