@@ -14,24 +14,82 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    html,
     body {
-      background: #e2e1e1;
-      color: #333;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a40, #2b5876);
+      color: #f8f8f8;
       line-height: 1.6;
-      margin-left: 0;
+      margin: 0;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Decorative circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      z-index: 0;
+      filter: blur(20px);
+    }
+
+    .circle1 {
+      width: 300px;
+      height: 300px;
+      top: -80px;
+      left: -80px;
+    }
+
+    .circle2 {
+      width: 400px;
+      height: 400px;
+      bottom: -120px;
+      right: -120px;
+    }
+
+    header,
+    nav,
+    .container,
+    footer {
+      position: relative;
+      z-index: 1;
     }
 
     header {
-      background: #4f46e5;
+      background: rgba(34, 32, 32, 0.55);
       color: white;
       padding: 2rem;
       text-align: center;
-      position: relative;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 60px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 18px 18px 18px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 1000;
+      background-color: #4f46e5;
+      margin-bottom: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     }
 
     nav a {
       margin: 0 10px;
-      color: rgb(15, 13, 13);
+      color: white;
       text-decoration: none;
       font-weight: 500;
     }
@@ -40,92 +98,86 @@
       max-width: 900px;
       margin: auto;
       padding: 2rem;
-      width: 95%;
-      box-sizing: border-box;
+      width: 100%;
+      flex: 1 0 auto;
+      margin-top: 0;
     }
 
     section {
       margin-bottom: 3rem;
+      background-color: rgba(45, 45, 45, 0.7);
+      padding: 20px;
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInSection 0.8s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    section:nth-of-type(2) {
+      animation-delay: 0.4s;
+    }
+
+    section:nth-of-type(3) {
+      animation-delay: 0.6s;
+    }
+
+    section:nth-of-type(4) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes fadeInSection {
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     h2 {
-      color: #4f46e5;
+      color: #60a5fa;
       margin-bottom: 1rem;
-      align-items: center;
       text-align: center;
     }
 
     .project {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 1rem;
+      background-color: rgba(55, 55, 55, 0.7);
+      padding: 20px;
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .project a {
+      color: #60a5fa !important;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .project a:hover {
+      color: #93c5fd !important;
     }
 
     footer {
+      background: #232526;
+      color: #fff;
       text-align: center;
-      padding: 1rem;
-      background: #eee;
-    }
-
-    nav{
-      position: sticky;
-      top: 0;
-      text-align: center;
-      width: 100%;
-      z-index: 1000;
-      background-color: #4f46e5;
-      margin-bottom: 0;
-      border: none;
-      box-shadow: none;
-    }
-    /* Responsive tweaks for smaller screens, no layout change, fix header overlap */
-    @media (max-width: 700px) {
-      .container {
-        padding: 1rem;
-      }
-      header {
-        padding: 1rem;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2 {
-        font-size: 1.2rem;
-      }
-      nav {
-        padding: 0.5rem 0;
-        margin-bottom: 0.5rem;
-      }
-      nav a {
-        font-size: 0.95rem;
-        margin: 0 5px;
-      }
-      .project {
-        padding: 0.7rem;
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .container {
-        padding: 0.5rem;
-      }
-      header {
-        padding: 0.5rem;
-      }
-      h1 {
-        font-size: 1.1rem;
-      }
-      nav a {
-        font-size: 0.85rem;
-        margin: 0 2px;
-      }
-      .project {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-      }
+      padding: 15px 0;
+      margin-top: 40px;
+      flex-shrink: 0;
     }
 
     nav ul {
@@ -135,27 +187,91 @@
       display: flex;
       justify-content: center;
     }
+
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+        margin-top: 60px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      nav {
+        padding: 0.5rem 0;
+      }
+
+      .project,
+      section {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto 2rem auto;
+        box-sizing: border-box;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 0.5rem;
+        margin-top: 55px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .project,
+      section {
+        padding: 8px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto 2rem auto;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+        margin: 0 2px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      nav a {
+        font-size: 0.75rem;
+        margin: 0 1px;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- Decorative background shapes -->
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+
   <header>
-    <h1>Himansa's  Portfolio</h1>
+    <h1>Himansa's Portfolio</h1>
   </header>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <div class="container">
     <section id="about">
       <h2>About Me</h2>
-      <p style="text-align: center;">I’m a pre-university student interested in Computer Science Engineering. I enjoy building websites, coding in
-        Python, and learning about new technologies.</p>
+      <p style="text-align: center;">I’m a pre-university student interested in Computer Science Engineering. I enjoy
+        building websites, coding in Python, and learning about new technologies.</p>
     </section>
 
     <section id="skills">
@@ -170,24 +286,29 @@
 
     <section id="projects">
       <h2>Projects</h2>
-      
 
       <div class="project">
         <h3>Baby Rose Pre School</h3>
-        <p>A basic website created for pre school. It has clean and simple structure for beteer readability.</p>
-        <a href="https://himansa2005.github.io/baby-rose/" target="_blank" style="color: #1107ce;">View on GitHub</a>
+        <p>A basic website created for pre school. It has clean and simple structure for better readability.</p>
+        <a href="https://himansa2005.github.io/baby-rose/" target="_blank">View on GitHub</a>
       </div>
 
       <div class="project">
         <h3>ID Card Generator</h3>
-        <p>A site that I created for practice.I get the help from AI to add some funtions on it.</p>
-        <a href="https://himansa2005.github.io/idcard/" target="_blank" style="color: #1107ce;">View on GitHub</a>
+        <p>A site that I created for practice. I got help from AI to add some functions on it.</p>
+        <a href="https://himansa2005.github.io/idcard/" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="project">
+        <h3>Business Page</h3>
+        <p>A simple business page created for freelancer. I created using HTML, CSS.</p>
+        <a href="https://himansa2005.github.io/RW-typesettings/" target="_blank">View on GitHub</a>
       </div>
 
       <div class="project">
         <h3>Beginner Python Projects</h3>
-        <p>These are the programs that I wrote using python for my python learning plan.</p>
-        <a href="projects.html" target="_blank" style="color: #1107ce;">View page</a>
+        <p>These are the programs that I wrote using Python for my Python learning plan.</p>
+        <a href="projects.html" target="_blank">View page</a>
       </div>
     </section>
 
@@ -196,11 +317,13 @@
       <p style="margin-bottom: 0.5rem;">Feel free to reach out to me for collaboration or questions!</p>
       <p>
         <span style="margin-right: 10px;">📧</span>
-        <a href="mailto:himansadenith@gmail.com" style="color: #4f46e5; text-decoration: none;">himansadenith@gmail.com</a>
+        <a href="mailto:himansadenith@gmail.com"
+          style="color: #4f46e5; text-decoration: none;">himansadenith@gmail.com</a>
       </p>
       <p>
         <span style="margin-right: 10px;">🐙</span>
-        <a href="https://github.com/himansa2005" target="_blank" style="color: #4f46e5; text-decoration: none;">github.com/himansa2005</a>
+        <a href="https://github.com/himansa2005" target="_blank"
+          style="color: #4f46e5; text-decoration: none;">github.com/himansa2005</a>
       </p>
     </section>
   </div>
